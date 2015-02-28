@@ -1,0 +1,30 @@
+{
+    "name": "ridesocial/vehicle-bundle",
+    "type": "library",
+    "description": "vehicle bundle of the ridesocial network.",
+    "keywords": ["ridesocial", "ride sharing", "vehicle", "make", "model"],
+    "homepage": "http://ridesocial.daviddurost.net",
+    "license": "MIT",
+    "authors": [
+        {
+        "name": "David Durost",
+        "homepage": "http://daviddurost.net"
+        }
+    ],
+    "require": {
+        "php": ">=5.4"
+    },
+    "require-dev": {
+
+    },
+    "autoload": {
+        "psr-4": {
+            "RideSocial\\Bundle\\VehicleBundle\\": ""
+        }
+    },
+    "extra": {
+        "branch-alias": {
+            "dev-master": "0.1.*-dev"
+        }
+    }
+}
