@@ -1,6 +1,6 @@
-\RideSocial\Bundle\VehicleBundle\Entity\UserVehicle:
+\RideSocial\Bundle\VehicleBundle\Entity\Style:
     type: entity
-    table: user_vehicle
+    table: vehicle_style
     id:
         id:
             type: integer
@@ -12,10 +12,9 @@
         description:
             type: string
             nullable: true
-        color:
+        abbreviation:
             type: string
-        capacity:
-            type: integer
+            nullable: true
         createdAt:
             type: date
             gedmo:
@@ -35,22 +34,13 @@
             type: string
             gedmo:
                 blameable:
-                    on: create
+                    on: update
         slug:
             type: string
             gedmo:
                 slug:
                     - name
     ManyToOne:
-        user:
-            targetEntity: \RideSocial\Bundle\UserBundle\Entity\User
-            inversedBy: user_vehicles
-            joinColumn: 
-                name: user_id
-                referencedColumnName: id
-        vehicle:
-            targetEntity: \RideSocial\Bundle\VehicleBundle\Entity\Vehicle
-            inversedBy: user_vehicles
-            joinColumn:
-                name: vehicle_id
-                referencedColumnName: id
+        models:
+            targetEntity: \RideSocial\Bundle\VehicleBundle\Entity\Model
+            mappedBy: style

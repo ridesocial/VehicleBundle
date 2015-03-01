@@ -7,10 +7,15 @@
             generator:
                 strategy: AUTO
     fields:
-        name:
+        year:
             type: string
-        description:
-            type: string
+        capacity:
+            type: integer
+        fuelConsumption:
+            type: integer
+            nullable: true
+        maxSpeed:
+            type: integer
             nullable: true
         createdAt:
             type: date
@@ -36,7 +41,10 @@
             type: string
             gedmo:
                 slug:
-                    - name
+                    - year
+                    - make
+                    - model
+                    - style
     ManyToOne:
         make:
             targetEntity: \RideSocial\Bundle\VehicleBundle\Entity\Make
@@ -62,4 +70,14 @@
             joinColumn:
                 name: user_id
                 referencedColumnName: id
-            
+    manyToMany:
+        userVehicles:
+            targetEntity: \RideSocial\Bundle\VehicleBundle\Entity\UserVehicle
+            joinTable:
+                name: vehicle_user_vehicles
+                joinColumn:
+                    user_vehicle_id:
+                        referencedColumnName: id
+                    inverseJoinColumns:
+                        vehicle_id:
+                            referencedColumnName: id

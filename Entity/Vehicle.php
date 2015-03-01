@@ -1,8 +1,16 @@
 <?php
 namespace RideSocial\Bundle\VehicleBundle\Entity;
 
+use \RideSocial\Bundle\CoreBundle\Traits\ORM\TimestampableTrait;
+use \RideSocial\Bundle\CoreBundle\Traits\ORM\BlameableTrait;
+use \RideSocial\Bundle\CoreBundle\Traits\ORM\SluggableTrait;
+
 class Vehicle
 {
+    use TimestampableTrait;
+    use BlameableTrait;
+    use SluggableTrait;
+    
     /**
      * Id
      * @var integer
@@ -11,7 +19,7 @@ class Vehicle
     
     /**
      * Year
-     * @var type 
+     * @var \DateTime 
      */
     protected $year;
     
@@ -26,6 +34,12 @@ class Vehicle
      * @var \RideSocial\Bundle\VehicleBundle\Entity\Model
      */
     protected $model;
+    
+    /**
+     * Style
+     * @var \RideSocial\Bundle\VehicleBundle\Entity\Style
+     */
+    protected $style;
     
     /**
      * Capacity
@@ -132,6 +146,27 @@ class Vehicle
         } else {
             throw new \Exception('The given make does not match the vehicles\' model\\make');
         }
+        
+        return $this;
+    }
+    
+    /**
+     * Get style
+     * @return \RideSocial\Bundle\VehicleBundle\Entity\Style
+     */
+    public function getStyle()
+    {
+        return $this->style;
+    }
+    
+    /**
+     * Set style
+     * @param \RideSocial\Bundle\VehicleBundle\Entity\Style $style
+     * @return \RideSocial\Bundle\VehicleBundle\Entity\Vehicle
+     */
+    public function setStyle(\RideSocial\Bundle\VehicleBundle\Entity\Style $style)
+    {
+        $this->style = $style;
         
         return $this;
     }

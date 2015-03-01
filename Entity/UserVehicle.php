@@ -1,8 +1,16 @@
 <?php
 namespace RideSocial\Bundle\VehicleBundle\Entity;
 
+use \RideSocial\Bundle\CoreBundle\Traits\ORM\TimestampableTrait;
+use \RideSocial\Bundle\CoreBundle\Traits\ORM\BlameableTrait;
+use \RideSocial\Bundle\CoreBundle\Traits\ORM\SluggableTrait;
+
 class UserVehicle
 {
+    use TimestampableTrait;
+    use BlameableTrait;
+    use SluggableTrait;
+    
     /**
      * Id
      * @var integer

@@ -1,8 +1,16 @@
 <?php
 namespace RideSocial\Bundle\VehicleBundle\Entity;
 
+use \RideSocial\Bundle\CoreBundle\Traits\ORM\TimestampableTrait;
+use \RideSocial\Bundle\CoreBundle\Traits\ORM\BlameableTrait;
+use \RideSocial\Bundle\CoreBundle\Traits\ORM\SluggableTrait;
+
 class Model
 {
+    use TimestampableTrait;
+    use BlameableTrait;
+    use SluggableTrait;
+    
     /**
      * Id
      * @var integer
@@ -22,10 +30,16 @@ class Model
     protected $description;
     
     /**
-     *Makes
+     * Make
+     * @var \RideSocial\Bundle\VehicleBundle\Entity\Make
+     */
+    protected $make;
+    
+    /**
+     * Styles
      * @var \Doctrine\Common\Collections\ArrayCollection
      */
-    protected $makes;
+    protected $styles;
     
     /**
      * Vehicles
@@ -38,7 +52,7 @@ class Model
      */
     public function __construct()
     {
-        $this->makes = new \Doctrine\Common\Collections\ArrayCollection();
+        $this->styles = new \Doctrine\Common\Collections\ArrayCollection();
         $this->vehicles = new \Doctrine\Common\Collections\ArrayCollection();
     }
     
@@ -91,12 +105,12 @@ class Model
     }
     
     /**
-     * Get makes
+     * Get styles
      * @return \Doctrine\Common\Collections\ArrayCollection
      */
-    public function getMakes()
+    public function getStyles()
     {
-        return $this->makes;
+        return $this->styles;
     }
     
     /**
@@ -106,7 +120,7 @@ class Model
      */
     public function getMake($make)
     {
-        return $this->makes->get($make);
+        return $this->styles->get($make);
     }
     
     /**
@@ -116,30 +130,30 @@ class Model
      */
     public function hasMake($make)
     {
-        return $this->makes->contains($make);
+        return $this->styles->contains($make);
     }
     
     /**
-     * Has makes
+     * Has styles
      * @return boolean
      */
-    public function hasMakes()
+    public function hasStyles()
     {
-        return (0 < $this->makes);
+        return (0 < $this->styles);
     }
     
     /**
-     * Set makes
-     * @param array $makes
+     * Set styles
+     * @param array $styles
      * @return \RideSocial\Bundle\VehicleBundle\Entity\Model
      */
-    public function setMakes(array $makes)
+    public function setStyles(array $styles)
     {
-        if (!$makes instanceof \Doctrine\Common\Collections\ArrayCollection) {
-            $makes = new \Doctrine\Common\Collections\ArrayCollection($makes);
+        if (!$styles instanceof \Doctrine\Common\Collections\ArrayCollection) {
+            $styles = new \Doctrine\Common\Collections\ArrayCollection($styles);
         }
         
-        $this->makes = $makes;
+        $this->styles = $styles;
         
         return $this;
     }
@@ -151,7 +165,7 @@ class Model
      */
     public function addMake(\RideSocial\Bundle\VehicleBundle\Entity\Make $make)
     {
-        $this->makes->add($make);
+        $this->styles->add($make);
         
         return $this;
     }
