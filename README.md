@@ -5,6 +5,7 @@ This is a utility bundle of the RideSocial social network.
 ### Controller
 - MakeController
 - ModelController
+- StyleController
 - UserVehicleController
 - VehicleController
 
@@ -12,5 +13,6 @@ This is a utility bundle of the RideSocial social network.
 ### Entity
 - Make
 - Model
+- Style
 - UserVehicle
 - Vehicle

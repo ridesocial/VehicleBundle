@@ -1,0 +1,17 @@
+ridesocial_style_index:
+    path: /styles/{page}
+    defaults: { _controller: RideSocialVehicleBundle:Style:index, page: 1 }
+    requirements:
+        page: \d+
+ridesocial_style_edit:
+    path: /styles/{slug}/edit
+    defaults: { _controller: RideSocialVehicleBundle:Style:edit }
+ridesocial_style_show:
+    path: /styles/{slug}
+    defaults: { _controller: RideSocialVehicleBundle:Style:show }
+ridesocial_style_new:
+    path: /styles/new
+    defaults: { _controller: RideSocialVehicleBundle:Style:new }
+ridesocial_style_search:
+    path: /styles/search/{query}
+    defaults: { _controller: RideSocialVehicleBundle:Style:search, query: '' }
