@@ -1,0 +1,43 @@
+\RideSocial\Bundle\VehicleBundle\Entity\UserVehicle:
+    type: entity
+    table: user_vehicle
+    id:
+        id:
+            type: integer
+            generator:
+                strategy: AUTO
+    fields:
+        name:
+            type: string
+        description:
+            type: string
+            nullable: true
+        color:
+            type: string
+        capacity:
+            type: integer
+        createdAt:
+            type: date
+            gedmo:
+                timestampable:
+                    on: create
+        updatedAt:
+            type: date
+            gedmo:
+                timestampable:
+                    on: update
+        createdBy:
+            type: string
+            gedmo:
+                blameable:
+                    on: create
+        updatedBy:
+            type: string
+            gedmo:
+                blameable:
+                    on: create
+        slug:
+            type: string
+            gedmo:
+                slug:
+                    - name

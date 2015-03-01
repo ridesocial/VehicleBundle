@@ -1,0 +1,17 @@
+ridesocial_make_index:
+    path: /makes/{page}
+    defaults: { _controller: RideSocialVehicleBundle:Make:index, page: 1 }
+    requirements:
+        page: \d+
+ridesocial_make_edit:
+    path: /makes/{slug}/edit
+    defaults: { _controller: RideSocialVehicleBundle:Make:edit }
+ridesocial_make_show:
+    path: /makes/{slug}
+    defaults: { _controller: RideSocialVehicleBundle:Make:show }
+ridesocial_make_new:
+    path: /makes/new
+    defaults: { _controller: RideSocialVehicleBundle:Make:new }
+ridesocial_make_search:
+    path: /makes/search/{query}
+    defaults: { _controller: RideSocialVehicleBundle:Make:search, query: '' }

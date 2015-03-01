@@ -1,0 +1,65 @@
+\RideSocial\Bundle\VehicleBundle\Entity\Vehicle:
+    type: entity
+    table: vehicle
+    id:
+        id:
+            type: integer
+            generator:
+                strategy: AUTO
+    fields:
+        name:
+            type: string
+        description:
+            type: string
+            nullable: true
+        createdAt:
+            type: date
+            gedmo:
+                timestampable:
+                    on: create
+        updatedAt:
+            type: date
+            gedmo:
+                timestampable:
+                    on: update
+        createdBy:
+            type: string
+            gedmo:
+                blameable:
+                    on: create
+        updatedBy:
+            type: string
+            gedmo:
+                blameable:
+                    on: create
+        slug:
+            type: string
+            gedmo:
+                slug:
+                    - name
+    ManyToOne:
+        make:
+            targetEntity: \RideSocial\Bundle\VehicleBundle\Entity\Make
+            inversedBy: vehicle
+            joinColumn: 
+                name: make_id
+                referencedColumnName: id
+        model:
+            targetEntity: \RideSocial\Bundle\VehicleBundle\Entity\Model
+            inversedBy: vehicle
+            joinColumn:
+                name: model_id
+                referencedColumnName: id
+        style:
+            targetEntity: \RideSocial\Bundle\VehicleBundle\Entity\Style
+            inversedBy: vehicle
+            joinColumn:
+                name: style_id
+                referencedColumnName: id
+        user:
+            targetEntity: \RideSocial\Bundle\UserBundle\Entity\User
+            inversedBy: vehicle
+            joinColumn:
+                name: user_id
+                referencedColumnName: id
+            

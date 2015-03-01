@@ -1,0 +1,18 @@
+ridesocial_user_vehicle_index:
+    path: /users/{slug}/vehicles/{page}
+    defaults: { _controller: RideSocialVehicleBundle:UserVehicle:index, page: 1 }
+    requirements:
+        page: \d+
+        slug: \s+
+ridesocial_user_vehicle_edit:
+    path: /users/{user_slug}/vehicles/{vehicle_slug}/edit
+    defaults: { _controller: RideSocialVehicleBundle:UserVehicle:edit }
+ridesocial_user_vehicle_show:
+    path: /users/{user_slug}/vehicles/{vehicle_slug}
+    defaults: { _controller: RideSocialVehicleBundle:UserVehicle:show }
+ridesocial_user_vehicle_new:
+    path: /users/{slug}/vehicles/new
+    defaults: { _controller: RideSocialVehicleBundle:UserVehicle:new }
+ridesocial_user_vehicle_search:
+    path: /usersvehicles/search/{query}
+    defaults: { _controller: RideSocialVehicleBundle:UserVehicle:search, query: '' }

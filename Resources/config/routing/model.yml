@@ -1,0 +1,17 @@
+ridesocial_model_index:
+    path: /models/{page}
+    defaults: { _controller: RideSocialVehicleBundle:Model:index, page: 1 }
+    requirements:
+        page: \d+
+ridesocial_model_edit:
+    path: /models/{slug}/edit
+    defaults: { _controller: RideSocialVehicleBundle:Model:edit }
+ridesocial_model_show:
+    path: /models/{slug}
+    defaults: { _controller: RideSocialVehicleBundle:Model:show }
+ridesocial_model_new:
+    path: /models/new
+    defaults: { _controller: RideSocialVehicleBundle:Model:new }
+ridesocial_model_search:
+    path: /models/search/{query}
+    defaults: { _controller: RideSocialVehicleBundle:Model:search, query: '' }
